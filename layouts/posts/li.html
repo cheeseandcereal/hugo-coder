@@ -1,4 +1,15 @@
 <li>
-  <span class="date">{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}</span>
-  <a class="title" href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a>
+  <span class="post-header">
+    <span class="day">
+      <i class="fa fa-calendar"></i>
+      <time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>
+        {{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006" ) }}
+      </time>
+    </span>
+    <span class="reading-time">
+      <i class="fa fa-clock-o"></i>
+      {{ i18n "reading_time" .ReadingTime }}
+    </span>
+  </span>
+  <a class="title" href="{{ .Params.ExternalLink | default .RelPermalink }}">{{ .Title }}</a>
 </li>
